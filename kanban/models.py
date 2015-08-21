@@ -3,10 +3,11 @@ from django.db import models
 # Create your models here.
 
 class Tablero(models.Model):
-    pass
+    titulo = models.CharField(max_length=200)
     
 class Columna(models.Model):
-    pass
+    titulo = models.CharField(max_length=200)
     
 class Tarjeta(models.Model):
-    pass
+    titulo = models.CharField(max_length=200)
+    descripcion = models.TextField()
