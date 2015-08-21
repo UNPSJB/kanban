@@ -19,5 +19,16 @@ Tablero
 Columna
 Tarjeta
 
+Conectar kanban
+---------------
+settings.py
+
+Crear la migracion y migrar
+---------------------------
+python manage.py makemigrations kanban
+python manage.py migrate
+
+Completar
+---------
 Poner Atributos y armar las relaciones segun teoria de base de datos y tercera forma normal.
 
