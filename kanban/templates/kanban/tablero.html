@@ -2,11 +2,28 @@
 
 {% block content %}
 <h1>{{tablero}}</h1>
+<div class="row">
 {% for columna in tablero.columnas.all %}
-   {{columna}} 
-   {% for tarjeta in columna.tarjetas.all %}
-       {{tarjeta}}
-   {% endfor %}
+<div class="col-md-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{columna}}</h3>
+        </div>
+        <div class="panel-body">
+        {% for tarjeta in columna.tarjetas.all %}
+           <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <h3 class="panel-title">{{tarjeta.titulo}}</h3>
+               </div>
+               <div class="panel-body">
+                   {{tarjeta.descripcion}}
+               </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
 {% endfor %}
+</div>
 
 {% endblock %}

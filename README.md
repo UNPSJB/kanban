@@ -85,5 +85,9 @@ Mas sobre templates
 -------------------
 extends, los for contra los managers
 
+Mas colorete
+------------
+Paneles para las columnas
+Poner algunas columnas mas, todo doing doit
 
 
