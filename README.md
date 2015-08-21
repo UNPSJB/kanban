@@ -28,7 +28,20 @@ Crear la migracion y migrar
 python manage.py makemigrations kanban
 python manage.py migrate
 
-Completar
----------
-Poner Atributos y armar las relaciones segun teoria de base de datos y tercera forma normal.
+Completar modelo
+----------------
+Poner Atributos y armar las relaciones segun teoria de base de datos.
 
+Jugar con la api
+----------------
+python manage.py shell
+
+Algo de vida al modelo
+----------------------
+Ahora saben su nombre y hacer algo
+
+Ahora si mas api y tunear algunas cosas
+---------------------------------------
+
+Hablar de queryset
+------------------
