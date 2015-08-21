@@ -1,0 +1,10 @@
+{% load staticfiles %}
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'kanban/css/bootstrap.min.css' %}" />
+</head>
+<body>
+    {% block content %}{% endblock %}
+    <script src="{% static 'kanban/js/bootstrap.min.js' %}"></script>
+</body>
+</html>
