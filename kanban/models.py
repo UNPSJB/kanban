@@ -7,7 +7,9 @@ class Tablero(models.Model):
     
 class Columna(models.Model):
     titulo = models.CharField(max_length=200)
-    
+    tablero = models.ForeignKey(Tablero)
+
 class Tarjeta(models.Model):
     titulo = models.CharField(max_length=200)
     descripcion = models.TextField()
+    columna = models.ForeignKey(Columna)
