@@ -45,3 +45,15 @@ Ahora si mas api y tunear algunas cosas
 
 Hablar de queryset
 ------------------
+Mostrar como se arman las queries
+
+Activar la admin
+----------------
+Cuac!! ya viene activada por defecto :D (soy viejo)
+python manage.py createsuperuser
+
+Ponerle admin a kanban
+----------------------
+Agregar los modelos a la admin para ver el efecto en la admin
+
+
