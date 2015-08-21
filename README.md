@@ -69,4 +69,12 @@ Algo de color
 Agregar bootstrap y hablar de statics
 http://getbootstrap.com/
 
+Ahora a navegar a un tablero
+----------------------------
+Armar url view y el link
+
+Refactoring de template
+-----------------------
+
+
 

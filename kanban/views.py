@@ -7,3 +7,7 @@ def index(request):
     tableros = Tablero.objects.all()
     return render(request, 'kanban/index.html', {'tableros': tableros})
 
+def tablero(request, tablero_id):
+    tablero = Tablero.objects.get(id=tablero_id)
+    return render(request, 'kanban/tablero.html', {'tablero': tablero})
+
