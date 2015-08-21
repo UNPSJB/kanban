@@ -60,5 +60,13 @@ Views y url.py
 --------------
 El hola mundo mas simple de todos
 
+Templates
+---------
+Entender el concepto y usar los shortcuts
+
+Algo de color
+-------------
+Agregar bootstrap y hablar de statics
+http://getbootstrap.com/
 
 
