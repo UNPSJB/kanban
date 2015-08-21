@@ -56,4 +56,9 @@ Ponerle admin a kanban
 ----------------------
 Agregar los modelos a la admin para ver el efecto en la admin
 
+Views y url.py
+--------------
+El hola mundo mas simple de todos
+
+
 
