@@ -90,4 +90,28 @@ Mas colorete
 Paneles para las columnas
 Poner algunas columnas mas, todo doing doit
 
+Tarjeta con forma de tarjeta
+----------------------------
+Poner mas color al tablero
+Agregar mas tarjetas
+
+Javascript del bueno, jqueryui
+------------------------------
+Incorporamos y despedazamos jqueryui segun como mas nos gusta
+
+Jugar con herramientas en el navegador
+--------------------------------------
+firebug
+
+Tablero con tarjetas moviles
+----------------------------
+Agregar los scripts para que las tarjetas se muevan
+
+Ahora hay que hacer algunos posts
+----------------------------
+
+https://jqueryui.com/
+
+
+
 

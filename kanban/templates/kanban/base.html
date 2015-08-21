@@ -2,9 +2,13 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="{% static 'kanban/css/bootstrap.min.css' %}" />
+    <link href="{% static 'kanban/css/jquery-ui.css' %}" rel="stylesheet">
 </head>
 <body>
     {% block content %}{% endblock %}
+    <script src="{% static 'kanban/js/jquery.js' %}"></script>
+    <script src="{% static 'kanban/js/jquery-ui.min.js' %}"></script>
     <script src="{% static 'kanban/js/bootstrap.min.js' %}"></script>
+    {% block scripts %}{% endblock %}
 </body>
 </html>
