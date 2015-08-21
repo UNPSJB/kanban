@@ -3,7 +3,7 @@
 {% block content %}
 <ul>
 {% for tablero in tableros %}
-    <li><a href="/kanban/{{ tablero.id }}/">{{tablero}}</a></li>
+    <li><a href="{% url 'tablero' tablero.id %}">{{tablero}}</a></li>
 {% endfor %}
 </ul>
 {% endblock %}
