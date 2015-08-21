@@ -51,7 +51,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-ROOT_URLCONF = 'organizandor.urls'
+ROOT_URLCONF = 'organizador.urls'
 
 TEMPLATES = [
     {
@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'organizandor.wsgi.application'
+WSGI_APPLICATION = 'organizador.wsgi.application'
 
 
 # Database
