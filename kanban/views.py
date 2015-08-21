@@ -5,9 +5,5 @@ from .models import Tablero
 
 def index(request):
     tableros = Tablero.objects.all()
-    template = loader.get_template('kanban/index.html')
-    context = RequestContext(request, {
-        'tableros': tableros,
-    })
-    return HttpResponse(template.render(context))
+    return render(request, 'kanban/index.html', {'tableros': tableros})
 
