@@ -2,4 +2,11 @@
 
 {% block content %}
 <h1>{{tablero}}</h1>
+{% for columna in tablero.columnas.all %}
+   {{columna}} 
+   {% for tarjeta in columna.tarjetas.all %}
+       {{tarjeta}}
+   {% endfor %}
+{% endfor %}
+
 {% endblock %}

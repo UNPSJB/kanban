@@ -75,6 +75,15 @@ Armar url view y el link
 
 Refactoring de template
 -----------------------
+Acomodar templates, extends
+
+Url fea y url linda
+-------------------
+cambiar a {% url 'tablero' tablero.id %}
+
+Mas sobre templates
+-------------------
+extends, los for contra los managers
 
 
 
