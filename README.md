@@ -129,6 +129,12 @@ Agregar el fk al formulario de tarjeta y mejorar la vista de la columna __str__
 Mejorar el estilo del formulario hora de incluir apps de terceros
 django-bootstrap3
 
+Alta de tarjetas
+----------------
+Reusar la view para hacer el alta de tarjetas
+mencionar algunos detalles o problemas que estamos teniendo por no tener bien las urls
+
+
 
 
 
