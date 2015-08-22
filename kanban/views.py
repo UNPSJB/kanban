@@ -26,3 +26,11 @@ def tarjeta(request, tarjeta_id=None):
         "form": form
     })
 
+add_tarjeta = tarjeta
+edit_tarjeta = tarjeta
+def delete_tarjeta(request, tarjeta_id):
+    tarjeta = get_object_or_404(Tarjeta, id=tarjeta_id)
+    tarjeta.delete()
+    return redirect('tablero', tarjeta.columna.tablero.id)
+
+

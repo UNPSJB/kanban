@@ -134,6 +134,9 @@ Alta de tarjetas
 Reusar la view para hacer el alta de tarjetas
 mencionar algunos detalles o problemas que estamos teniendo por no tener bien las urls
 
+Icono de eliminar tarea
+-----------------------
+Hora de refactorizar urls
 
 
 
