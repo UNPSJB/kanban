@@ -12,12 +12,12 @@ def tablero(request, tablero_id):
     tablero = Tablero.objects.get(id=tablero_id)
     return render(request, 'kanban/tablero.html', {'tablero': tablero})
 
-def editar_tarjeta(request, tarjeta_id):
-    tarjeta = get_object_or_404(Tarjeta, id=tarjeta_id)
+def tarjeta(request, tarjeta_id=None):
+    tarjeta = tarjeta_id and get_object_or_404(Tarjeta, id=tarjeta_id) or None
     if request.method == 'POST':
         form = TarjetaForm(request.POST, instance=tarjeta)
         if form.is_valid():
-            form.save()
+            tarjeta = form.save()
             return redirect('tablero', tarjeta.columna.tablero.id)
     elif request.method == 'GET':
         form = TarjetaForm(instance=tarjeta)
