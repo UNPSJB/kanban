@@ -104,6 +104,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'medios')
+
 import markdown
 
 MARKUP_FIELD_TYPES = (

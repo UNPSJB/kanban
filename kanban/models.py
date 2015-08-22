@@ -1,5 +1,6 @@
 from django.db import models
 from markupfield.fields import MarkupField
+from django.contrib.auth import models as authmodels
 
 # Create your models here.
 
@@ -30,6 +31,13 @@ class Tarjeta(models.Model):
     titulo = models.CharField(max_length=200)
     descripcion = MarkupField()
     columna = models.ForeignKey(Columna, related_name='tarjetas')
-    
+    fecha = models.DateTimeField()
+    usuarios = models.ManyToManyField(authmodels.User)
+
     def __str__(self):
         return self.titulo
+
+class Recurso(models.Model):
+    nombre = models.CharField(max_length=200)
+    archivo = models.FileField(upload_to='recursos')
+    tarjeta = models.ForeignKey(Tarjeta)
