@@ -3,10 +3,10 @@ from django.template import RequestContext, loader
 from django.http import HttpResponse
 from .models import Tablero, Tarjeta
 from .forms import TarjetaForm
+from django.views.generic import ListView
 
-def tableros(request):
-    tableros = Tablero.objects.all()
-    return render(request, 'kanban/tableros.html', {'tableros': tableros})
+class TableroListView(ListView):
+    model = Tablero
 
 def tablero(request, tablero_id):
     tablero = Tablero.objects.get(id=tablero_id)

@@ -3,7 +3,7 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.tableros, name='index'),
+    url(r'^$', views.TableroListView.as_view(), name='index'),
     url(r'^(?P<tablero_id>[0-9]+)/$', views.tablero, name='tablero'),
     url(r'^tarjeta/$', views.add_tarjeta, name='add_tarjeta'),
     url(r'^tarjeta/(?P<tarjeta_id>[0-9]+)/$', views.edit_tarjeta, name='edit_tarjeta'),
