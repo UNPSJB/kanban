@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.template import RequestContext, loader
 from django.http import HttpResponse
 from .models import Tablero, Tarjeta
+from .forms import TarjetaForm
 
 def tableros(request):
     tableros = Tablero.objects.all()
@@ -14,11 +15,14 @@ def tablero(request, tablero_id):
 def editar_tarjeta(request, tarjeta_id):
     tarjeta = get_object_or_404(Tarjeta, id=tarjeta_id)
     if request.method == 'POST':
-        metodo = 'POST'
+        form = TarjetaForm(request.POST, instance=tarjeta)
+        if form.is_valid():
+            form.save()
+            return redirect('tablero', tarjeta.columna.tablero.id)
     elif request.method == 'GET':
-        metodo = 'GET'
+        form = TarjetaForm(instance=tarjeta)
     return render(request, "kanban/tarjeta.html", {
         "tarjeta": tarjeta,
-        "metodo": metodo
+        "form": form
     })
 

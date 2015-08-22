@@ -117,6 +117,18 @@ Separar GET y POST
 ------------------
 Crear template y seprar el GET del POST
 
+Crear el formulario
+-------------------
+En forms.py
+Mejorar el template
+{% csrf_token %}
+
+Como se ven los fk
+------------------
+Agregar el fk al formulario de tarjeta y mejorar la vista de la columna __str__
+Mejorar el estilo del formulario hora de incluir apps de terceros
+django-bootstrap3
+
 
 
 

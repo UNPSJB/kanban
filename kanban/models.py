@@ -18,7 +18,7 @@ class Columna(models.Model):
     tablero = models.ForeignKey(Tablero, related_name='columnas')
 
     def __str__(self):
-        return self.titulo
+        return "%s - %s" % (self.titulo, self.tablero)
 
     def nueva_tarjeta(self, titulo, descripcion):
         t = Tarjeta(titulo=titulo, descripcion=descripcion, columna=self)
