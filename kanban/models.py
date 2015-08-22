@@ -27,12 +27,18 @@ class Columna(models.Model):
         t.save()
         return t
 
-class Tarjeta(models.Model):
+class Postit(models.Model):
     titulo = models.CharField(max_length=200)
-    descripcion = MarkupField()
     columna = models.ForeignKey(Columna, related_name='tarjetas')
-    fecha = models.DateTimeField()
-    usuarios = models.ManyToManyField(authmodels.User)
+    autor = models.ForeignKey(authmodels.User)
+    fecha = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.titulo
+
+class Tarjeta(Postit):
+    descripcion = MarkupField()
+    participantes = models.ManyToManyField(authmodels.User)
 
     def __str__(self):
         return self.titulo
