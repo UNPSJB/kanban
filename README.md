@@ -113,6 +113,11 @@ Editar una tarjeta
 ------------------
 Agregar icono para editar tarjeta, crear url y vista
 
+Separar GET y POST
+------------------
+Crear template y seprar el GET del POST
+
+
 
 
 
