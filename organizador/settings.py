@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'markupfield',
     'bootstrap3',
     'kanban'
 )
@@ -102,3 +103,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+import markdown
+
+MARKUP_FIELD_TYPES = (
+    ('markdown', markdown.markdown),
+)

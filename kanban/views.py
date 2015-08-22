@@ -33,4 +33,10 @@ def delete_tarjeta(request, tarjeta_id):
     tarjeta.delete()
     return redirect('tablero', tarjeta.columna.tablero.id)
 
+def modal_tarjeta(request, tarjeta_id):
+    tarjeta = get_object_or_404(Tarjeta, id=tarjeta_id)
+    return render(request, "kanban/modal.html", {
+        "tarjeta": tarjeta
+    })
+
 

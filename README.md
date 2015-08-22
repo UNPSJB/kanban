@@ -138,6 +138,14 @@ Icono de eliminar tarea
 -----------------------
 Hora de refactorizar urls
 
+Icono para ver el contenido de la tarjeta
+-----------------------------------------
+
+Algo de javascript
+------------------
+Ahora la tarjeta esta en una modal, uso de data en html
+que tal algo de markdown?  django-markupfield filters
+
 
 
 

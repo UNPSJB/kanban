@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^tarjeta/$', views.add_tarjeta, name='add_tarjeta'),
     url(r'^tarjeta/(?P<tarjeta_id>[0-9]+)/$', views.edit_tarjeta, name='edit_tarjeta'),
     url(r'^tarjeta/(?P<tarjeta_id>[0-9]+)/delete/$', views.delete_tarjeta, name='delete_tarjeta'),
+    url(r'^tarjeta/(?P<tarjeta_id>[0-9]+)/modal/$', views.modal_tarjeta, name='modal_tarjeta'),
 ]

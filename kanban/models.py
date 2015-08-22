@@ -1,4 +1,5 @@
 from django.db import models
+from markupfield.fields import MarkupField
 
 # Create your models here.
 
@@ -27,7 +28,7 @@ class Columna(models.Model):
 
 class Tarjeta(models.Model):
     titulo = models.CharField(max_length=200)
-    descripcion = models.TextField()
+    descripcion = MarkupField()
     columna = models.ForeignKey(Columna, related_name='tarjetas')
     
     def __str__(self):
