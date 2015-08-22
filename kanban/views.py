@@ -11,3 +11,6 @@ def tablero(request, tablero_id):
     tablero = Tablero.objects.get(id=tablero_id)
     return render(request, 'kanban/tablero.html', {'tablero': tablero})
 
+def editar_tarjeta(request, tarjeta_id):
+    return ""
+
