@@ -1,4 +1,4 @@
-
+﻿
 Manual
 https://docs.djangoproject.com/en/1.8/
 
@@ -23,14 +23,14 @@ Conectar kanban
 ---------------
 settings.py
 
-Crear la migracion y migrar
+Crear la migración y migrar
 ---------------------------
 python manage.py makemigrations kanban
 python manage.py migrate
 
 Completar modelo
 ----------------
-Poner Atributos y armar las relaciones segun teoria de base de datos.
+Poner Atributos y armar las relaciones según teoría de base de datos.
 
 Jugar con la api
 ----------------
@@ -97,7 +97,7 @@ Agregar mas tarjetas
 
 Javascript del bueno, jqueryui
 ------------------------------
-Incorporamos y despedazamos jqueryui segun como mas nos gusta
+Incorporamos y despedazamos jqueryui según como mas nos gusta
 
 Jugar con herramientas en el navegador
 --------------------------------------
@@ -115,7 +115,7 @@ Agregar icono para editar tarjeta, crear url y vista
 
 Separar GET y POST
 ------------------
-Crear template y seprar el GET del POST
+Crear template y separar el GET del POST
 
 Crear el formulario
 -------------------
