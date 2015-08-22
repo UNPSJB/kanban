@@ -107,10 +107,12 @@ Tablero con tarjetas moviles
 ----------------------------
 Agregar los scripts para que las tarjetas se muevan
 
-Ahora hay que hacer algunos posts
-----------------------------
-
 https://jqueryui.com/
+
+Editar una tarjeta
+------------------
+Agregar icono para editar tarjeta, crear url y vista
+
 
 
 
