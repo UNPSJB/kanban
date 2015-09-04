@@ -5,6 +5,7 @@
     <link href="{% static 'kanban/css/jquery-ui.css' %}" rel="stylesheet">
 </head>
 <body>
+<div class="container-fluid">
     {% block title %}{% endblock %}
     {% bootstrap_messages %}
     {% block content %}{% endblock %}
@@ -12,5 +13,6 @@
     <script src="{% static 'kanban/js/jquery-ui.min.js' %}"></script>
     <script src="{% static 'kanban/js/bootstrap.min.js' %}"></script>
     {% block scripts %}{% endblock %}
+</div>
 </body>
 </html>
