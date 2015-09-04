@@ -1,4 +1,5 @@
 {% extends "kanban/base.html" %}
+{% load bootstrap3 %}
 
 {% block title %}
 <h1>Tableros kanban</h1>
@@ -10,4 +11,5 @@
     <li class="list-group-item"><a href="{% url 'tablero' tablero.id %}">{{tablero}}</a></li>
 {% endfor %}
 </ul>
+<a class="btn btn-default" href="{% url 'add_tablero' %}" role="button">Nuevo tablero</a>
 {% endblock %}

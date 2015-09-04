@@ -17,16 +17,16 @@ def get_tablero(request, tablero_id):
     tablero = models.Tablero.objects.get(id=tablero_id)
     return render(request, 'kanban/tablero.html', {'tablero': tablero})
 
-def columna(request, tablero_id, columna_id=None):
+def columna(request, tablero_id=None, columna_id=None):
     columna = columna_id and get_object_or_404(models.Columna, id=columna_id) or None
-    tablero = get_object_or_404(models.Tablero, id=tablero_id)
+    tablero = tablero_id and get_object_or_404(models.Tablero, id=tablero_id) or None
     if request.method == 'POST':
         form = forms.ColumnaForm(request.POST, instance=columna)
         if form.is_valid():
             columna = form.save(commit=False)
             columna.tablero = tablero
             columna.save()
-            messages.info(request, "Columna %s creada" % columna.title)
+            messages.info(request, "Columna %s creada" % columna.titulo)
             return redirect('tablero', columna.tablero.id)
     elif request.method == 'GET':
         form = forms.ColumnaForm(instance=columna)
@@ -38,16 +38,17 @@ def columna(request, tablero_id, columna_id=None):
 add_columna = columna
 edit_columna = columna
 
-def tarjeta(request, columna_id, tarjeta_id=None):
+def tarjeta(request, columna_id=None, tarjeta_id=None):
     tarjeta = tarjeta_id and get_object_or_404(models.Tarjeta, id=tarjeta_id) or None
-    columna = get_object_or_404(models.Columna, id=columna_id)
+    columna = columna_id and get_object_or_404(models.Columna, id=columna_id) or None
     if request.method == 'POST':
         form = forms.TarjetaForm(request.POST, instance=tarjeta)
         if form.is_valid():
             tarjeta = form.save(commit=False)
-            tarjeta.columna = columna
+            tarjeta.columna = columna or tarjeta.columna
+            tarjeta.autor = request.user
             tarjeta.save()
-            messages.info(request, "Tarjeta %s creada" % tarjeta.title)
+            messages.info(request, "Tarjeta %s creada" % tarjeta.titulo)
             return redirect('tablero', tarjeta.columna.tablero.id)
     elif request.method == 'GET':
         form = forms.TarjetaForm(instance=tarjeta)
@@ -64,7 +65,7 @@ def delete_tarjeta(request, tarjeta_id):
     return redirect('tablero', tarjeta.columna.tablero.id)
 
 def modal_tarjeta(request, tarjeta_id):
-    tarjeta = get_object_or_404(Tarjeta, id=tarjeta_id)
+    tarjeta = get_object_or_404(models.Tarjeta, id=tarjeta_id)
     return render(request, "kanban/modal.html", {
         "tarjeta": tarjeta
     })
@@ -75,7 +76,7 @@ def tablero(request, tablero_id=None):
         form = forms.TableroForm(request.POST, instance=tablero)
         if form.is_valid():
             tablero = form.save()
-            messages.info(request, "Tablero %s creado" % tablero.title)
+            messages.info(request, "Tablero %s creado" % tablero.titulo)
             return redirect('tablero', tablero.id)
     elif request.method == 'GET':
         form = forms.TableroForm(instance=tablero)
