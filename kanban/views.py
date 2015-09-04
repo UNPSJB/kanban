@@ -1,12 +1,17 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.template import RequestContext, loader
 from django.http import HttpResponse
+from django.views.generic import ListView
+from django.contrib import messages
 from . import models
 from . import forms
-from django.views.generic import ListView
 
 class TableroListView(ListView):
     model = models.Tablero
+
+    def get(self, request, *args, **kwargs):
+        messages.info(request, "Hola %s" % request.user.username)
+        return super().get(request, *args, **kwargs)
 
 def get_tablero(request, tablero_id):
     tablero = models.Tablero.objects.get(id=tablero_id)
@@ -21,6 +26,7 @@ def columna(request, tablero_id, columna_id=None):
             columna = form.save(commit=False)
             columna.tablero = tablero
             columna.save()
+            messages.info(request, "Columna %s creada" % columna.title)
             return redirect('tablero', columna.tablero.id)
     elif request.method == 'GET':
         form = forms.ColumnaForm(instance=columna)
@@ -41,6 +47,7 @@ def tarjeta(request, columna_id, tarjeta_id=None):
             tarjeta = form.save(commit=False)
             tarjeta.columna = columna
             tarjeta.save()
+            messages.info(request, "Tarjeta %s creada" % tarjeta.title)
             return redirect('tablero', tarjeta.columna.tablero.id)
     elif request.method == 'GET':
         form = forms.TarjetaForm(instance=tarjeta)
@@ -68,6 +75,7 @@ def tablero(request, tablero_id=None):
         form = forms.TableroForm(request.POST, instance=tablero)
         if form.is_valid():
             tablero = form.save()
+            messages.info(request, "Tablero %s creado" % tablero.title)
             return redirect('tablero', tablero.id)
     elif request.method == 'GET':
         form = forms.TableroForm(instance=tablero)
