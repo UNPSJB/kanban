@@ -10,3 +10,9 @@ class TableroForm(forms.ModelForm):
     class Meta:
         model = models.Tablero
         fields = ['titulo']
+
+class ColumnaForm(forms.ModelForm):
+    class Meta:
+        model = models.Columna
+        fields = ['titulo']
+        
