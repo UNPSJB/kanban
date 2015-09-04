@@ -111,3 +111,5 @@ import markdown
 MARKUP_FIELD_TYPES = (
     ('markdown', markdown.markdown),
 )
+
+LOGIN_URL = '/admin/login'

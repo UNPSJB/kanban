@@ -3,6 +3,8 @@ from django.template import RequestContext, loader
 from django.http import HttpResponse
 from django.views.generic import ListView
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
 from . import models
 from . import forms
 
@@ -17,6 +19,7 @@ def get_tablero(request, tablero_id):
     tablero = models.Tablero.objects.get(id=tablero_id)
     return render(request, 'kanban/tablero.html', {'tablero': tablero})
 
+@login_required
 def columna(request, tablero_id=None, columna_id=None):
     columna = columna_id and get_object_or_404(models.Columna, id=columna_id) or None
     tablero = tablero_id and get_object_or_404(models.Tablero, id=tablero_id) or None
@@ -38,6 +41,7 @@ def columna(request, tablero_id=None, columna_id=None):
 add_columna = columna
 edit_columna = columna
 
+@login_required
 def tarjeta(request, columna_id=None, tarjeta_id=None):
     tarjeta = tarjeta_id and get_object_or_404(models.Tarjeta, id=tarjeta_id) or None
     columna = columna_id and get_object_or_404(models.Columna, id=columna_id) or None
@@ -59,17 +63,21 @@ def tarjeta(request, columna_id=None, tarjeta_id=None):
 
 add_tarjeta = tarjeta
 edit_tarjeta = tarjeta
+
+@login_required
 def delete_tarjeta(request, tarjeta_id):
     tarjeta = get_object_or_404(models.Tarjeta, id=tarjeta_id)
     tarjeta.delete()
     return redirect('tablero', tarjeta.columna.tablero.id)
 
+@login_required
 def modal_tarjeta(request, tarjeta_id):
     tarjeta = get_object_or_404(models.Tarjeta, id=tarjeta_id)
     return render(request, "kanban/modal.html", {
         "tarjeta": tarjeta
     })
 
+@login_required
 def tablero(request, tablero_id=None):
     tablero = tablero_id and get_object_or_404(models.Tablero, id=tablero_id) or None
     if request.method == 'POST':
@@ -87,6 +95,8 @@ def tablero(request, tablero_id=None):
 
 add_tablero = tablero
 edit_tablero = tablero
+
+@login_required
 def delete_tablero(request, tablero_id):
     tablero = get_object_or_404(models.Tarjeta, id=tablero_id)
     tablero.delete()
