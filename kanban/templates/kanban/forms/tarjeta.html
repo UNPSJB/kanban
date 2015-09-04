@@ -1,12 +1,16 @@
 {% extends "kanban/base.html" %}
 {% load bootstrap3 %}
 
-{% block content %}
+{% block title %}
 {% if tarjeta %}
 <h1>Editar {{tarjeta}}</h1>
 {% else %}
 <h1>Nueva tarjeta</h1>
 {% endif %}
+{% endblock %}
+
+
+{% block content %}
 <form action="" method="post" class="form">
     {% csrf_token %}
     {% bootstrap_form form %}

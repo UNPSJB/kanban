@@ -1,7 +1,10 @@
 {% extends "kanban/base.html" %}
 
-{% block content %}
+{% block title %}
 <h1>Tableros kanban</h1>
+{% endblock %}
+
+{% block content %}
 <ul class="list-group">
 {% for tablero in object_list %}
     <li class="list-group-item"><a href="{% url 'tablero' tablero.id %}">{{tablero}}</a></li>

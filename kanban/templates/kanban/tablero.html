@@ -1,8 +1,11 @@
 {% extends "kanban/base.html" %}
 {% load staticfiles %}
 
-{% block content %}
+{% block title %}
 <h1>{{tablero}}</h1>
+{% endblock %}
+
+{% block content %}
 <div class="row">
 {% for columna in tablero.columnas.all %}
 <div class="col-md-2">

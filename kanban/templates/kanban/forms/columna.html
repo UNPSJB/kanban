@@ -1,12 +1,15 @@
 {% extends "kanban/base.html" %}
 {% load bootstrap3 %}
 
-{% block content %}
+{% block title %}
 {% if columna %}
 <h1>Editar {{columna}}</h1>
 {% else %}
 <h1>Nueva columna</h1>
 {% endif %}
+{% endblock %}
+
+{% block content %}
 <form action="" method="post" class="form">
     {% csrf_token %}
     {% bootstrap_form form %}
