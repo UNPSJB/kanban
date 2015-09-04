@@ -113,3 +113,11 @@ def modal_tarjeta(request, tarjeta_id):
     return render(request, "kanban/modal.html", {
         "tarjeta": tarjeta
     })
+
+@login_required
+def mover_tarjeta(request, tarjeta_id, columna_id):
+    tarjeta = get_object_or_404(models.Tarjeta, id=tarjeta_id)
+    columna = get_object_or_404(models.Columna, id=columna_id)
+    tarjeta.columna = columna
+    tarjeta.save()
+    return HttpResponse("Ok")

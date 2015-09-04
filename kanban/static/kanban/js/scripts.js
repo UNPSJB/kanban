@@ -4,10 +4,15 @@ $(function(){
       handle: ".tarjeta-header",
       cancel: ".tarjeta-toggle",
       start: function (event, ui) {
-        ui.item.addClass('tilt');
+        $(".glyphicon-move", $(ui.item)).toggleClass('hide');
       },
       stop: function (event, ui) {
-        ui.item.removeClass('tilt');
+        $(".glyphicon-move", $(ui.item)).toggleClass('hide');
+        var column = $(ui.item).closest(".column").data()["id"];
+        var tarjeta = $(ui.item).data()["id"];
+        $.get('/kanban/tarjeta/' + tarjeta + '/mover/' + column, function() {
+            console.log("Movido");
+        });
       }
     });
    $( ".ver-tarjeta" ).click(function(e){
