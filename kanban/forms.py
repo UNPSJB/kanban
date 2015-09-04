@@ -1,7 +1,12 @@
 from django import forms
-from .models import Tarjeta
+from . import models
 
 class TarjetaForm(forms.ModelForm):
     class Meta:
-        model = Tarjeta
-        fields = ['titulo', 'descripcion', 'columna', 'descripcion_markup_type']
+        model = models.Tarjeta
+        fields = ['titulo', 'descripcion', 'descripcion_markup_type', 'participantes']
+
+class TableroForm(forms.ModelForm):
+    class Meta:
+        model = models.Tablero
+        fields = ['titulo']

@@ -1,27 +1,27 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.template import RequestContext, loader
 from django.http import HttpResponse
-from .models import Tablero, Tarjeta
-from .forms import TarjetaForm
+from . import models
+from . import forms
 from django.views.generic import ListView
 
 class TableroListView(ListView):
-    model = Tablero
+    model = models.Tablero
 
-def tablero(request, tablero_id):
-    tablero = Tablero.objects.get(id=tablero_id)
+def get_tablero(request, tablero_id):
+    tablero = models.Tablero.objects.get(id=tablero_id)
     return render(request, 'kanban/tablero.html', {'tablero': tablero})
 
-def tarjeta(request, tarjeta_id=None):
-    tarjeta = tarjeta_id and get_object_or_404(Tarjeta, id=tarjeta_id) or None
+def tarjeta(request, tablero_id, tarjeta_id=None):
+    tarjeta = tarjeta_id and get_object_or_404(models.Tarjeta, id=tarjeta_id) or None
     if request.method == 'POST':
-        form = TarjetaForm(request.POST, instance=tarjeta)
+        form = forms.TarjetaForm(request.POST, instance=tarjeta)
         if form.is_valid():
             tarjeta = form.save()
             return redirect('tablero', tarjeta.columna.tablero.id)
     elif request.method == 'GET':
-        form = TarjetaForm(instance=tarjeta)
-    return render(request, "kanban/tarjeta.html", {
+        form = forms.TarjetaForm(instance=tarjeta)
+    return render(request, "kanban/forms/tarjeta.html", {
         "tarjeta": tarjeta,
         "form": form
     })
@@ -29,7 +29,7 @@ def tarjeta(request, tarjeta_id=None):
 add_tarjeta = tarjeta
 edit_tarjeta = tarjeta
 def delete_tarjeta(request, tarjeta_id):
-    tarjeta = get_object_or_404(Tarjeta, id=tarjeta_id)
+    tarjeta = get_object_or_404(models.Tarjeta, id=tarjeta_id)
     tarjeta.delete()
     return redirect('tablero', tarjeta.columna.tablero.id)
 
@@ -39,4 +39,23 @@ def modal_tarjeta(request, tarjeta_id):
         "tarjeta": tarjeta
     })
 
+def tablero(request, tablero_id=None):
+    tablero = tablero_id and get_object_or_404(models.Tablero, id=tablero_id) or None
+    if request.method == 'POST':
+        form = forms.TableroForm(request.POST, instance=tablero)
+        if form.is_valid():
+            tablero = form.save()
+            return redirect('tablero', tablero.id)
+    elif request.method == 'GET':
+        form = forms.TableroForm(instance=tablero)
+    return render(request, "kanban/forms/tablero.html", {
+        "tablero": tablero,
+        "form": form
+    })
 
+add_tablero = tablero
+edit_tablero = tablero
+def delete_tablero(request, tablero_id):
+    tablero = get_object_or_404(models.Tarjeta, id=tablero_id)
+    tablero.delete()
+    return redirect('tableros')

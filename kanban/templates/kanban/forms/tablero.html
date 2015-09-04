@@ -1,0 +1,19 @@
+{% extends "kanban/base.html" %}
+{% load bootstrap3 %}
+
+{% block content %}
+{% if tablero %}
+<h1>Editar {{tablero}}</h1>
+{% else %}
+<h1>Nuevo tablero</h1>
+{% endif %}
+<form action="" method="post" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+        <button type="submit" class="btn btn-primary">
+            {% bootstrap_icon "ok" %} {% if tablero %}Editar{% else %}Crear{% endif %}
+        </button>
+    {% endbuttons %}
+</form>
+{% endblock %}
