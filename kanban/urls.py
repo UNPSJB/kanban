@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^(?P<tablero_id>[0-9]+)/$', views.get_tablero, name='tablero'),
     url(r'^(?P<tablero_id>[0-9]+)/columna/$', views.add_columna, name='add_columna'),
     url(r'^columna/(?P<columna_id>[0-9]+)/$', views.edit_columna, name='edit_columna'),
+    url(r'^columna/(?P<columna_id>[0-9]+)/delete/$', views.delete_columna, name='delete_columna'),
     url(r'^(?P<columna_id>[0-9]+)/tarjeta/$', views.add_tarjeta, name='add_tarjeta'),
     url(r'^tarjeta/(?P<tarjeta_id>[0-9]+)/$', views.edit_tarjeta, name='edit_tarjeta'),
     url(r'^tarjeta/(?P<tarjeta_id>[0-9]+)/delete/$', views.delete_tarjeta, name='delete_tarjeta'),
